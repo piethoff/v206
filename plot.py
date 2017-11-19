@@ -4,6 +4,12 @@ from scipy.optimize import curve_fit
 import scipy.constants.constants as const
 from uncertainties import ufloat
 from uncertainties import unumpy
+import matplotlib as mpl
+
+mpl.use('pgf')
+mpl.rcParams.update({
+    'pgf.preamble': r'\usepackage{siunitx}',
+})
 
 #Koordinatensystem erstellen:
 plt.rcParams['figure.figsize'] = (10,8)
@@ -59,14 +65,32 @@ plt.plot(time, f(time, *params), "b--", label=r'Fit $T_2$')
 #plt.plot(time, h(time, *params), "b--", label=r'Fit $T_2$')
 
 #Legende und anzeigen:
+plt.tight_layout()
 plt.legend(loc='best')
-plt.savefig('build/tempfit.pdf')
+#plt.savefig('build/tempfit.pdf')
 
 plt.clf()
 
 data = np.genfromtxt("content/Messwerte2.txt", unpack=True)
-print(data[3])
-print(data[1])
-plt.plot(data[3], data[1])
-plt.plot(data[4], data[2])
+
+data[1] += 273.15
+data[1] = 1/data[1]
+data[4] += 1
+#data[4] = np.log(data[4])
+
+def p(T, A, LR):
+    return np.exp(-LR*T+A)
+
+plt.plot(data[1], data[4], label="Messwerte")
+params, covar = curve_fit(p, data[1], data[4], p0=(9, 2000))
+uparams = unumpy.uarray(params, np.sqrt(np.diag(covar)))
+print(uparams)
+
+plt.yscale("log")
+plt.ylabel(r"$p/\si{\bar}$")
+plt.xlabel(r"$T/\si{\kelvin}$")
+plt.plot(data[1], p(data[1], *params), label="Fit")
+plt.grid()
+plt.legend()
+plt.tight_layout()
 plt.savefig("build/dampfdruck.pdf")

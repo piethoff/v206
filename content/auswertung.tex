@@ -33,7 +33,7 @@ Die Ausgleichsrechnung wurde in diesem Diagramm bereits aufgetragen.
     \end{tabular}
 \end{table}
 \subsection{Ausgleichsrechnung}
-Um eine geeignete Näherung für die Temperaturverläufe zu erreichen wurde
+Als eine geeignete Näherung für die Temperaturverläufe wurde
 \begin{equation}
   \label{eq:tempfit}
   T(t) = At^2 + Bt + C
@@ -42,11 +42,11 @@ gewählt.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.5]{tempfit.pdf}
-  \caption{Temperaturen der Wärmereservoirs aufgetragen gegen die Zeit}
+  \caption{Temperaturen der Wärmereservoirs aufgetragen gegen die Zeit.}
   \label{fig:tempfit}
 \end{figure}
 Dabei ergeben sich für die Koeffizienten $A$, $B$ und $C$:
-
+%
 Die Differentialquotienten $\symup{d}T_1/\symup{dt}$ und $\symup{d}T_2/\symup{dt}$ können mithilfe der Näherungsfunktion 
 bestimmt werden:
 \begin{equation}
@@ -60,19 +60,48 @@ Es ergeben sich folgende Werte für 4 verschiedene, gewählte Temperaturen:
     \sisetup{table-format=}
     \begin{tabular}{S S S S S}
         \toprule
-        {$T_1/\si{\kelvin}$} & {$\frac{\symup{d}T_1}{\symup{dt}}$} & {$T_2/\si{\kelvin}$} & {$\frac{\symup{d}T_2}{\symup{dt}}$} & {$A/\si{\watt}$} \\
+        {Zeit$/\si{\minute}$} & {$T_1/\si{\kelvin}$} & {$\frac{\symup{d}T_1}{\symup{dt}}$} & {$T_2/\si{\kelvin}$} & {$\frac{\symup{d}T_2}{\symup{dt}}$} \\
         \midrule
-%
+%        3   & 296.65    &   &  293.15 &
+%        7   & 303.55    &   &  286.55 &
+%        11  & 310.95    &   &  279.45 &
+%        15  & 317.25    &   &  274.05 &
         \bottomrule
     \end{tabular}
 \end{table}
-Mithilfe der Gleichungen \eqref{} und \eqref{} kann nun die Gütezahl der realen Wärmepumpe berechnet werden:
+%
+Mithilfe der Gleichungen \eqref{eq:gueteziffer} und \eqref{eq:leistung} kann nun die Gütezahl der realen Wärmepumpe berechnet 
+werden:
 \begin{equation}
-    \nu_\text{real} = \frac{m_wc_w + m_sc_s}{A}\frac{\symup{d}T}{\symup{dt}}
+    \nu_\text{real} = \frac{m_wc_w + m_sc_s}{N}\frac{\symup{d}T}{\symup{dt}}
 \end{equation}
 Hier ist $A$ die angezeigte Leistung des Kompressors, $m_sc_s$ die Wärmekapazität des Systems angegeben mit 
 $\SI{660}{\joule\per\kelvin}$ und $m_wc_w$ die Wärmekapazität des Wassers in einem der Reservoire, die mit dem Literaturwert 
-von $c_w = \SI{4182}{\joule\per\kilogram\per\kelvin}$ bestimmt wird.
+von $c_w = \SI{4182}{\joule\per\kilogram\per\kelvin}$ \cite{const} bestimmt wird.
 Somit ergibt sich eine Güte von $\nu_\text{real} = $
-Im Vergleich zur Güteziffer der idealen Wärmepumpe $\nu_\text{ideal} = $ nach \eqref{} hat die reale Waärmepumpe eine 
-Abweichung von \%.
+Im Vergleich zur Güteziffer der idealen Wärmepumpe $\nu_\text{ideal} = $ nach \eqref{eq:guetezifferideal} hat die reale Wärmepumpe eine 
+Abweichung von $\SI{}{\percent}$.
+%
+Der Massenstrom lässt sich mit Gleichung \eqref{eq:massendurchsatz} berechnen, jedoch wird dazu die Verdampfungswärme 
+$\symup{L}$ benötigt.
+Aus der Anleitung des Versuchs \href{http://129.217.224.2/HOMEPAGE/PHYSIKER/BACHELOR/AP/SKRIPT/V203.pdf}{v203} erhält man 
+folgende Gleichung:
+\begin{equation}
+    \ln \left(p\right) = -\frac{\symup{L}}{\symup{R}} \frac{1}{T} + \text{const.}
+\end{equation}
+In folgendem halblogarithmischen Diagramm, ist eine Ausgleichsgerade einfegügt aus dessen Steigung sich L berechnen lässt.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{build/dampfdruck.pdf}
+\caption{Dampfdruckkurve von $\ce{Cl2F2C}$.}
+\end{figure}
+%
+Aus dieser Gleichung und den Messreihen für $p_b$ und $T_1$ kann mit der allgemeinen Gaskonstante $R=\SI{8.31}{\joule\per\mole\per\kelvin}$
+die Verdampfungswärme $L=\SI{}{\joule\per\mole}=\SI{}{\joule\kilogram}$, mit der molaren Masse von $\ce{Cl2F2C}$ 
+%
+$\SI{120.91}{\gram\per\mole}$ \cite{molar}, bestimmt werden.
+Abschließend lässt sich die mechanische Kompressorleistung über Gleichung \eqref{eq:arbeit} bestimmen.
+Die Dichte von $\ce{Cl2F2C}$ bei $T=\SI{0}{\celsius}$ und $p=\SI{1}{\bar}$ liegt bei $\rho_0=\SI{5.51}{\gram\per\liter}$ und 
+$\kappa$ ist gegeben mit $\SI{1.14}{}$.
+Somit ist $N_\text{mech}=\SI{}{\watt}$.
+%
