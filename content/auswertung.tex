@@ -3,7 +3,7 @@
 \subsection{Temperaturverlauf}
 Die gemessenen Werte sind in einem geeigneten Diagramm \ref{fig:tempfit} dargestellt.
 Die Ausgleichsrechnung wurde in diesem Diagramm bereits aufgetragen.
-\begin{table}
+\begin{table}[H]
     \centering
     \caption{Messwerte des Versuchs (ohne 1 Bar Umgebungsdruck).}
     \label{tab:t1}
@@ -34,9 +34,16 @@ Die Ausgleichsrechnung wurde in diesem Diagramm bereits aufgetragen.
 \end{table}
 
 \subsection{Ausgleichsrechnung}
+Um eine geeignete Näherung für die Temperaturverläufe zu erreichen wurde
+\begin{equation}
+  \label{eq:tempfit}
+  T(t) = At^2 + Bt + C
+\end{equation}
+gewählt.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.5]{tempfit.pdf}
   \caption{Temperaturen der Wärmereservoirs aufgetragen gegen die Zeit}
   \label{fig:tempfit}
 \end{figure}
+Dabei ergeben sich für die Koeffizienten A, B und C :
