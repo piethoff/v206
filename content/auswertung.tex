@@ -32,7 +32,6 @@ Die Ausgleichsrechnung wurde in diesem Diagramm bereits aufgetragen.
         \bottomrule
     \end{tabular}
 \end{table}
-
 \subsection{Ausgleichsrechnung}
 Um eine geeignete Näherung für die Temperaturverläufe zu erreichen wurde
 \begin{equation}
@@ -46,4 +45,34 @@ gewählt.
   \caption{Temperaturen der Wärmereservoirs aufgetragen gegen die Zeit}
   \label{fig:tempfit}
 \end{figure}
-Dabei ergeben sich für die Koeffizienten A, B und C :
+Dabei ergeben sich für die Koeffizienten $A$, $B$ und $C$:
+
+Die Differentialquotienten $\symup{d}T_1/\symup{dt}$ und $\symup{d}T_2/\symup{dt}$ können mithilfe der Näherungsfunktion 
+bestimmt werden:
+\begin{equation}
+    \frac{\symup{d}T_1}{\symup{dt}} = 2At + B
+\end{equation}
+Es ergeben sich folgende Werte für 4 verschiedene, gewählte Temperaturen:
+\begin{table}[H]
+    \centering
+    \caption{Differentialquotienten von $T_1$ und $T_2$.}
+    \label{tab:t2}
+    \sisetup{table-format=}
+    \begin{tabular}{S S S S S}
+        \toprule
+        {$T_1/\si{\kelvin}$} & {$\frac{\symup{d}T_1}{\symup{dt}}$} & {$T_2/\si{\kelvin}$} & {$\frac{\symup{d}T_2}{\symup{dt}}$} & {$A/\si{\watt}$} \\
+        \midrule
+%
+        \bottomrule
+    \end{tabular}
+\end{table}
+Mithilfe der Gleichungen \eqref{} und \eqref{} kann nun die Gütezahl der realen Wärmepumpe berechnet werden:
+\begin{equation}
+    \nu_\text{real} = \frac{m_wc_w + m_sc_s}{A}\frac{\symup{d}T}{\symup{dt}}
+\end{equation}
+Hier ist $A$ die angezeigte Leistung des Kompressors, $m_sc_s$ die Wärmekapazität des Systems angegeben mit 
+$\SI{660}{\joule\per\kelvin}$ und $m_wc_w$ die Wärmekapazität des Wassers in einem der Reservoire, die mit dem Literaturwert 
+von $c_w = \SI{4182}{\joule\per\kilogram\per\kelvin}$ bestimmt wird.
+Somit ergibt sich eine Güte von $\nu_\text{real} = $
+Im Vergleich zur Güteziffer der idealen Wärmepumpe $\nu_\text{ideal} = $ nach \eqref{} hat die reale Waärmepumpe eine 
+Abweichung von \%.
