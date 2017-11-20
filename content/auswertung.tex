@@ -47,24 +47,14 @@ gewählt.
   \label{fig:tempfit}
 \end{figure}
 Dabei ergeben sich für die Koeffizienten $A$, $B$ und $C$:
-\begin{equation*}
-    A_{T1} =\SI{-0.1\pm 1.2e-6}{\kelvin\per\second\squared}
-\end{equation*}
-\begin{equation*}
-    B_{T1} =\SI{0.028\pm 0.0014}{\kelvin\per\second}
-\end{equation*}
-\begin{equation*}
-    C_{T1} =\SI{292.05\pm 0.34}{\kelvin}
-\end{equation*}
-\begin{equation*}
-    A_{T2} =\SI{5.9\pm 2.4e-6}{\kelvin\per\second\squared}
-\end{equation*}
-\begin{equation*}
-    B_{T2} =\SI{-0.0312\pm 0.0029}{\kelvin\per\second}
-\end{equation*}
-\begin{equation*}
-    C_{T2} =\SI{298.0\pm 0.7}{\kelvin}
-\end{equation*}
+\begin{align}
+    A_{T1} & = \SI[per-mode=reciprocal]{-0.1 \pm 1.2e-6}{\kelvin\per\second\squared}    \\
+    B_{T1} & = \SI[per-mode=reciprocal]{0.028 \pm 0.0014}{\kelvin\per\second}           \\
+    C_{T1} & = \SI[per-mode=reciprocal]{292.05 \pm 0.34}{\kelvin}                       \\
+    A_{T2} & = \SI[per-mode=reciprocal]{5.9 \pm 2.4e-6}{\kelvin\per\second\squared}     \\
+    B_{T2} & = \SI[per-mode=reciprocal]{-0.0312\pm 0.0029}{\kelvin\per\second}         \\
+    C_{T2} & = \SI[per-mode=reciprocal]{298.0\pm 0.7}{\kelvin}
+\end{align}
 Die Differentialquotienten $\symup{d}T_1/\symup{dt}$ und $\symup{d}T_2/\symup{dt}$ können mithilfe der Näherungsfunktion
 bestimmt werden:
 \begin{equation}
@@ -76,14 +66,14 @@ Es ergeben sich folgende Werte für 4 verschiedene, gewählte Temperaturen:
     \caption{Differentialquotienten von $T_1$ und $T_2$.}
     \label{tab:t2}
     \sisetup{table-format=3.4(4)e1}
-    \begin{tabular}{S[table-format=2.0] S[table-format=3.2] S[table-format=1.4(4)e1] S[table-format=3.2] S[table-format=3.4(4)e1]}
+    \begin{tabular}{S[table-format=2.0] S[table-format=3.2] S[table-format=1.3(4)] S[table-format=3.2] S[table-format=2.3(4)]}
         \toprule
-        {Zeit$/\si{\minute}$} & {$T_1/\si{\kelvin}$} & {$\frac{\symup{d}T_1}{\symup{dt}}$} & {$T_2/\si{\kelvin}$} & {$\frac{\symup{d}T_2}{\symup{dt}}$} \\
+        {Zeit$/\si{\minute}$} & {$T_1/\si{\kelvin}$} & {$\frac{\symup{d}T_1}{\symup{dt}}/\si{\kelvin\per\second}$} & {$T_2/\si{\kelvin}$} & {$\frac{\symup{d}T_2}{\symup{dt}}/\si{\kelvin\per\second}$} \\
         \midrule
-        3   & 296.65    & 0.028 \pm 0.0042  &  293.15 & -0.031 \pm 0.0087\\
-        7   & 303.55    & 0.028 \pm 0.0098 &  286.55 & -0.031 \pm 0.0203 \\
-        11  & 310.95    & 0.028 \pm 0.0154 &  279.45 & -0.031 \pm 0.0315\\
-        15  & 317.25    & 0.028 \pm 0.021 &  274.05 & -0.031 \pm 0.0435\\
+        3   & 296.65    & 0.028 \pm 0.004 &  293.15 & -0.031 \pm 0.009\\
+        7   & 303.55    & 0.028 \pm 0.010 &  286.55 & -0.031 \pm 0.020\\
+        11  & 310.95    & 0.028 \pm 0.015 &  279.45 & -0.031 \pm 0.032\\
+        15  & 317.25    & 0.028 \pm 0.021 &  274.05 & -0.031 \pm 0.044\\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -103,20 +93,18 @@ Dazu sind noch die idealen Güteziffern und Abweichung von diesen Aufgetragen.
     \centering
     \caption{Ergebnisse für reale und ideale Güteziffern}
     \label{tab:guete}
-    \sisetup{table-format=2.4}
-    \begin{tabular}{S[table-format=2.0] S[table-format=2.4(4)e1] S S}
+    \sisetup{table-format=2.2}
+    \begin{tabular}{S[table-format=2.0] S[table-format=1.3(4)] S S}
         \toprule
-        {Zeit$/\si{\minute}$} & {$\rho_{real}$} & {$\rho_{ideal}$} & {$Abweichung$} \\
+        {Zeit$/\si{\minute}$} & {$\nu_\text{real}$} & {$\nu_\text{ideal}$} & {Abweichung} \\
         \midrule
-        3  & 0.205 \pm 0.0042 & 84.76 & 99.76\% \\
-        7  & 0.183 \pm 0.0098 & 17.86 & 98.97\% \\
-        11 & 0.174 \pm 0.0154 & 9.87 & 98.23\% \\
-        15 & 0.172 \pm 0.021 & 7.34 & 97.66\% \\
+        3  & 0.205 \pm 0.290 & 84.76 & 99.76\% \\
+        7  & 0.183 \pm 0.662 & 17.86 & 98.97\% \\
+        11 & 0.174 \pm 0.923 & 9.87  & 98.23\% \\
+        15 & 0.172 \pm 1.274 & 7.34  & 97.66\% \\
         \bottomrule
     \end{tabular}
 \end{table}
-
-
 %
 \subsection{Massendurchsatz}
 Der Massenstrom lässt sich mit Gleichung \eqref{eq:massendurchsatz} berechnen, jedoch wird dazu die Verdampfungswärme
@@ -128,19 +116,52 @@ folgende Gleichung:
 \end{equation}
 In folgendem halblogarithmischen Diagramm, ist eine Ausgleichsgerade einfegügt aus dessen Steigung sich L berechnen lässt.
 \begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{build/dampfdruck.pdf}
-\caption{Dampfdruckkurve von $\ce{Cl2F2C}$.}
+    \centering
+    \includegraphics[width=\textwidth]{build/dampfdruck.pdf}
+    \caption{Dampfdruckkurve von $\ce{Cl2F2C}$.}
 \end{figure}
 %
 Aus dieser Gleichung und den Messreihen für $p_b$ und $T_1$ kann mit der allgemeinen Gaskonstante $R=\SI{8.31}{\joule\per\mole\per\kelvin}$
-die Verdampfungswärme $L=\SI{}{\joule\per\mole}=\SI{}{\joule\kilogram}$, mit der molaren Masse von $\ce{Cl2F2C}$
-%
+die Verdampfungswärme $L=\SI{17301\pm548}{\joule\per\mole}=\SI{143101\pm4568}{\joule\kilogram}$, mit der molaren 
+Masse von $\ce{Cl2F2C}$
 $\SI{120.91}{\gram\per\mole}$ \cite{molar}, bestimmt werden.
+%
+Daraus folgt ein Massendruchsatz von:
+\begin{table}[H]
+    \centering
+    \caption{Massendurchsatz.}
+    \label{tab:masse}
+    \sisetup{table-format=2.3(4)e2}
+    \begin{tabular}{S[table-format=2.0] S S}
+        \toprule
+        {Zeit$/\si{\minute}$} & {$\frac{\symup{d}T_2}{\symup{dt}}/\si{\kelvin\per\second}$} & {$\frac{\symup{d}m}{\symup{dt}}/\si{\kg\per\second}$} \\
+        \midrule
+        3   & -0.031 \pm 0.009  & -2,861\pm0.836e-3\\
+        5   & -0.031 \pm 0.020  & -2,861\pm1.848e-3\\
+        7   & -0.031 \pm 0.032  & -2,861\pm2.955e-3\\
+        11  & -0.031 \pm 0.044  & -2,861\pm4.062e-3\\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsection{Mechanische Kompressorleistung}
 Abschließend lässt sich die mechanische Kompressorleistung über Gleichung \eqref{eq:arbeit} bestimmen.
 Die Dichte von $\ce{Cl2F2C}$ bei $T=\SI{0}{\celsius}$ und $p=\SI{1}{\bar}$ liegt bei $\rho_0=\SI{5.51}{\gram\per\liter}$ und
 $\kappa$ ist gegeben mit $\SI{1.14}{}$.
-Somit ist $N_\text{mech}=\SI{}{\watt}$.
-%
+
+\begin{table}[H]
+    \centering
+    \caption{Mechanische Kompressorleistung.}
+    \label{tab:masse}
+    \sisetup{table-format=2.2}
+    \begin{tabular}{S[table-format=2.0] S S S[table-format=2.3(4)e2] S[table-format=2.3(4)]}
+        \toprule
+        {Zeit$/\si{\minute}$} & {$p_a/\si{\bar}$} & {$p_b/\si{\bar}$} & {$\frac{\symup{d}m}{\symup{dt}}/\si{\kg\per\second}$} & {$N_\text{mech}/\si{\watt}$} \\
+        \midrule
+        3   & 1.82  & 7.0   & -2,861\pm0.836e-3 & -1.094\pm0.002 \\
+        7   & 2.1   & 8.1   & -2,861\pm1.848e-3 & -1.265\pm0.002 \\
+        11  & 2.2   & 9.6   & -2,861\pm2.955e-3 & -1.476\pm0.002 \\
+        15  & 0.9   & 11.2  & -2,861\pm4.062e-3 & -1.233\pm0.002 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
