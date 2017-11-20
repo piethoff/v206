@@ -67,7 +67,7 @@ plt.plot(time, f(time, *params), "b--", label=r'Fit $T_2$')
 #Legende und anzeigen:
 plt.tight_layout()
 plt.legend(loc='best')
-#plt.savefig('build/tempfit.pdf')
+plt.savefig('build/tempfit.pdf')
 
 plt.clf()
 
@@ -81,7 +81,7 @@ data[4] += 1
 def p(T, A, LR):
     return np.exp(-LR*T+A)
 
-plt.plot(data[1], data[4], label="Messwerte")
+plt.plot(data[1], data[4],'b.', label="Messwerte")
 params, covar = curve_fit(p, data[1], data[4], p0=(9, 2000))
 uparams = unumpy.uarray(params, np.sqrt(np.diag(covar)))
 print(uparams)
@@ -89,7 +89,7 @@ print(uparams)
 plt.yscale("log")
 plt.ylabel(r"$p/\si{\bar}$")
 plt.xlabel(r"$T/\si{\kelvin}$")
-plt.plot(data[1], p(data[1], *params), label="Fit")
+plt.plot(data[1], p(data[1], *params),'r-', label="Fit")
 plt.grid()
 plt.legend()
 plt.tight_layout()

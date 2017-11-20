@@ -29,6 +29,7 @@ Die Ausgleichsrechnung wurde in diesem Diagramm bereits aufgetragen.
         15  & 44.1  & 0.9   & 2.2   & 11.2  & 215   \\
         16  & 45.7  & 0.2   & 2.2   & 11.5  & 215   \\
         17  & 47.2  & -0.3  & 2.2   & 11.6  & 210   \\
+        18  & 48.6  & -0.7  & 2.2   & 12    & 210   \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -46,8 +47,25 @@ gewählt.
   \label{fig:tempfit}
 \end{figure}
 Dabei ergeben sich für die Koeffizienten $A$, $B$ und $C$:
-%
-Die Differentialquotienten $\symup{d}T_1/\symup{dt}$ und $\symup{d}T_2/\symup{dt}$ können mithilfe der Näherungsfunktion 
+\begin{equation*}
+    A_{T1} =\SI{-0.1\pm 1.2e-6}{\kelvin\per\second\squared}
+\end{equation*}
+\begin{equation*}
+    B_{T1} =\SI{0.028\pm 0.0014}{\kelvin\per\second}
+\end{equation*}
+\begin{equation*}
+    C_{T1} =\SI{292.05\pm 0.34}{\kelvin}
+\end{equation*}
+\begin{equation*}
+    A_{T2} =\SI{5.9\pm 2.4e-6}{\kelvin\per\second\squared}
+\end{equation*}
+\begin{equation*}
+    B_{T2} =\SI{-0.0312\pm 0.0029}{\kelvin\per\second}
+\end{equation*}
+\begin{equation*}
+    C_{T2} =\SI{298.0\pm 0.7}{\kelvin}
+\end{equation*}
+Die Differentialquotienten $\symup{d}T_1/\symup{dt}$ und $\symup{d}T_2/\symup{dt}$ können mithilfe der Näherungsfunktion
 bestimmt werden:
 \begin{equation}
     \frac{\symup{d}T_1}{\symup{dt}} = 2At + B
@@ -57,34 +75,53 @@ Es ergeben sich folgende Werte für 4 verschiedene, gewählte Temperaturen:
     \centering
     \caption{Differentialquotienten von $T_1$ und $T_2$.}
     \label{tab:t2}
-    \sisetup{table-format=}
-    \begin{tabular}{S S S S S}
+    \sisetup{table-format=3.4(4)e1}
+    \begin{tabular}{S[table-format=2.0] S[table-format=3.2] S[table-format=1.4(4)e1] S[table-format=3.2] S[table-format=3.4(4)e1]}
         \toprule
         {Zeit$/\si{\minute}$} & {$T_1/\si{\kelvin}$} & {$\frac{\symup{d}T_1}{\symup{dt}}$} & {$T_2/\si{\kelvin}$} & {$\frac{\symup{d}T_2}{\symup{dt}}$} \\
         \midrule
-%        3   & 296.65    &   &  293.15 &
-%        7   & 303.55    &   &  286.55 &
-%        11  & 310.95    &   &  279.45 &
-%        15  & 317.25    &   &  274.05 &
+        3   & 296.65    & 0.028 \pm 0.0042  &  293.15 & -0.031 \pm 0.0087\\
+        7   & 303.55    & 0.028 \pm 0.0098 &  286.55 & -0.031 \pm 0.0203 \\
+        11  & 310.95    & 0.028 \pm 0.0154 &  279.45 & -0.031 \pm 0.0315\\
+        15  & 317.25    & 0.028 \pm 0.021 &  274.05 & -0.031 \pm 0.0435\\
         \bottomrule
     \end{tabular}
 \end{table}
 %
-Mithilfe der Gleichungen \eqref{eq:gueteziffer} und \eqref{eq:leistung} kann nun die Gütezahl der realen Wärmepumpe berechnet 
+\subsection{Güteziffer}
+Mithilfe der Gleichungen \eqref{eq:gueteziffer} und \eqref{eq:leistung} kann nun die Gütezahl der realen Wärmepumpe berechnet
 werden:
 \begin{equation}
     \nu_\text{real} = \frac{m_wc_w + m_sc_s}{N}\frac{\symup{d}T}{\symup{dt}}
 \end{equation}
-Hier ist $A$ die angezeigte Leistung des Kompressors, $m_sc_s$ die Wärmekapazität des Systems angegeben mit 
-$\SI{660}{\joule\per\kelvin}$ und $m_wc_w$ die Wärmekapazität des Wassers in einem der Reservoire, die mit dem Literaturwert 
+Hier ist $A$ die angezeigte Leistung des Kompressors, $m_sc_s$ die Wärmekapazität des Systems angegeben mit
+$\SI{660}{\joule\per\kelvin}$ und $m_wc_w$ die Wärmekapazität des Wassers in einem der Reservoire, die mit dem Literaturwert
 von $c_w = \SI{4182}{\joule\per\kilogram\per\kelvin}$ \cite{const} bestimmt wird.
-Somit ergibt sich eine Güte von $\nu_\text{real} = $
-Im Vergleich zur Güteziffer der idealen Wärmepumpe $\nu_\text{ideal} = $ nach \eqref{eq:guetezifferideal} hat die reale Wärmepumpe eine 
-Abweichung von $\SI{}{\percent}$.
+Die so erhaltenen Güteziffern befindent sich in Tabelle \ref{tab:guete}.
+Dazu sind noch die idealen Güteziffern und Abweichung von diesen Aufgetragen.
+\begin{table}[H]
+    \centering
+    \caption{Ergebnisse für reale und ideale Güteziffern}
+    \label{tab:guete}
+    \sisetup{table-format=2.4}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.4(4)e1] S S}
+        \toprule
+        {Zeit$/\si{\minute}$} & {$\rho_{real}$} & {$\rho_{ideal}$} & {$Abweichung$} \\
+        \midrule
+        3  & 0.205 \pm 0.0042 & 84.76 & 99.76\% \\
+        7  & 0.183 \pm 0.0098 & 17.86 & 98.97\% \\
+        11 & 0.174 \pm 0.0154 & 9.87 & 98.23\% \\
+        15 & 0.172 \pm 0.021 & 7.34 & 97.66\% \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
 %
-Der Massenstrom lässt sich mit Gleichung \eqref{eq:massendurchsatz} berechnen, jedoch wird dazu die Verdampfungswärme 
+\subsection{Massendurchsatz}
+Der Massenstrom lässt sich mit Gleichung \eqref{eq:massendurchsatz} berechnen, jedoch wird dazu die Verdampfungswärme
 $\symup{L}$ benötigt.
-Aus der Anleitung des Versuchs \href{http://129.217.224.2/HOMEPAGE/PHYSIKER/BACHELOR/AP/SKRIPT/V203.pdf}{v203} erhält man 
+Aus der Anleitung des Versuchs \href{http://129.217.224.2/HOMEPAGE/PHYSIKER/BACHELOR/AP/SKRIPT/V203.pdf}{v203} erhält man
 folgende Gleichung:
 \begin{equation}
     \ln \left(p\right) = -\frac{\symup{L}}{\symup{R}} \frac{1}{T} + \text{const.}
@@ -97,11 +134,13 @@ In folgendem halblogarithmischen Diagramm, ist eine Ausgleichsgerade einfegügt 
 \end{figure}
 %
 Aus dieser Gleichung und den Messreihen für $p_b$ und $T_1$ kann mit der allgemeinen Gaskonstante $R=\SI{8.31}{\joule\per\mole\per\kelvin}$
-die Verdampfungswärme $L=\SI{}{\joule\per\mole}=\SI{}{\joule\kilogram}$, mit der molaren Masse von $\ce{Cl2F2C}$ 
+die Verdampfungswärme $L=\SI{}{\joule\per\mole}=\SI{}{\joule\kilogram}$, mit der molaren Masse von $\ce{Cl2F2C}$
 %
 $\SI{120.91}{\gram\per\mole}$ \cite{molar}, bestimmt werden.
+
+\subsection{Mechanische Kompressorleistung}
 Abschließend lässt sich die mechanische Kompressorleistung über Gleichung \eqref{eq:arbeit} bestimmen.
-Die Dichte von $\ce{Cl2F2C}$ bei $T=\SI{0}{\celsius}$ und $p=\SI{1}{\bar}$ liegt bei $\rho_0=\SI{5.51}{\gram\per\liter}$ und 
+Die Dichte von $\ce{Cl2F2C}$ bei $T=\SI{0}{\celsius}$ und $p=\SI{1}{\bar}$ liegt bei $\rho_0=\SI{5.51}{\gram\per\liter}$ und
 $\kappa$ ist gegeben mit $\SI{1.14}{}$.
 Somit ist $N_\text{mech}=\SI{}{\watt}$.
 %
