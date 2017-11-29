@@ -88,7 +88,7 @@ print(uparams)
 
 plt.yscale("log")
 plt.ylabel(r"$p/\si{\bar}$")
-plt.xlabel(r"$T/\si{\kelvin}$")
+plt.xlabel(r"$\frac{1}{T}/\si{\per\kelvin}$")
 plt.plot(data[1], p(data[1], *params),'r-', label="Fit")
 plt.grid()
 plt.legend()

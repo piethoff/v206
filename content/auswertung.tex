@@ -34,10 +34,9 @@ Die Ausgleichsrechnung wird in diesem Diagramm bereits aufgetragen.
     \end{tabular}
 \end{table}
 \subsection{Ausgleichsrechnung}
-Als eine geeignete Näherung für die Temperaturverläufe wird
+Als geeignete Näherung für die Temperaturverläufe wird
 \begin{equation}
-  \label{eq:tempfit}
-  F(t) = At^3 + Bt^2 + Ct + D
+    \frac{\symup{d}T}{\symup{dt}} \approx F(t) = At^3 + Bt^2 + Ct + D
 \end{equation}
 gewählt.
 \begin{figure}[H]
@@ -48,17 +47,24 @@ gewählt.
 \end{figure}
 \noindent Dabei ergeben sich für die Koeffizienten $A$, $B$ und $C$:
 \begin{align*}
-    A_{T1} & = \SI[per-mode=reciprocal]{-0.1 \pm 1.2e-6}{\kelvin\per\second\squared}    \\
-    B_{T1} & = \SI[per-mode=reciprocal]{0.028 \pm 0.0014}{\kelvin\per\second}           \\
-    C_{T1} & = \SI[per-mode=reciprocal]{292.05 \pm 0.34}{\kelvin}                       \\
-    A_{T2} & = \SI[per-mode=reciprocal]{5.9 \pm 2.4e-6}{\kelvin\per\second\squared}     \\
-    B_{T2} & = \SI[per-mode=reciprocal]{-0.0312\pm 0.0029}{\kelvin\per\second}         \\
-    C_{T2} & = \SI[per-mode=reciprocal]{298.0\pm 0.7}{\kelvin}
+    A_{T1} & = \SI[per-mode=reciprocal]{-1.3 \pm 0.28e-8}{\kelvin\per\second\cubed}    \\
+    B_{T1} & = \SI[per-mode=reciprocal]{2.2 \pm 0.5e-5}{\kelvin\per\second\squared}           \\
+    C_{T1} & = \SI[per-mode=reciprocal]{0.018 \pm 0.024}{\kelvin\per\second}                       \\
+    D_{T1} & = \SI[per-mode=reciprocal]{293.18 \pm 0.33}{\kelvin}                       \\
+\\
+    A_{T2} & = \SI[per-mode=reciprocal]{3.39 \pm 0.23e-8}{\kelvin\per\second\cubed}    \\
+    B_{T2} & = \SI[per-mode=reciprocal]{-5.2 \pm 0.4e-5}{\kelvin\per\second\squared}           \\
+    C_{T2} & = \SI[per-mode=reciprocal]{-0.004 \pm 0.002}{\kelvin\per\second}                       \\
+    D_{T2} & = \SI[per-mode=reciprocal]{295.05 \pm 0.27}{\kelvin}                       \\
 \end{align*}
 Die Differentialquotienten $\symup{d}T_1/\symup{dt}$ und $\symup{d}T_2/\symup{dt}$ können mithilfe der Näherungsfunktion
 bestimmt werden:
 \begin{equation}
-    \frac{\symup{d}T_1}{\symup{dt}} = 3At^2 + 2Bt + C
+    \frac{\symup{d}T}{\symup{dt}} \approx 3At^2 + 2Bt + C
+\end{equation}
+Die Unsichertheit ergibt sich mit der Gaußschen Fehlerfortpflanzung zu:
+\begin{equation}
+    \symup{\Delta}\frac{\symup{d}T}{\symup{dt}} = sqrt{\left(3t^2\symup{\Delta}A\right)^2+\left(2t\symup{\Delta}B\right)^2+\left(\symup{\Delta}C\right)^2}
 \end{equation}
 Es ergeben sich folgende Werte für 4 verschiedene, gewählte Temperaturen:
 \begin{table}[H]
@@ -108,13 +114,13 @@ Dazu sind noch die idealen Güteziffern und Abweichung von diesen Aufgetragen.
 %
 \subsection{Massendurchsatz}
 Der Massendurchsatz lässt sich mit Gleichung \eqref{eq:massendurchsatz} berechnen, jedoch wird dazu die Verdampfungswärme
-$\symup{L}$ benötigt.
+$L$ benötigt.
 In der Anleitung des Versuchs \href{http://129.217.224.2/HOMEPAGE/PHYSIKER/BACHELOR/AP/SKRIPT/V203.pdf}{v203} findet sich
 folgende Gleichung:
 \begin{equation}
-    \ln \left(p\right) = -\frac{\symup{L}}{\symup{R}} \frac{1}{T} + \text{const.}
+    \ln \left(p\right) = -\frac{L}{\symup{R}} \frac{1}{T} + \text{const.}
 \end{equation}
-In folgendem halblogarithmischen Diagramm, ist eine Ausgleichsgerade einfegügt aus dessen Steigung sich L berechnen lässt.
+In folgendem halblogarithmischen Diagramm, ist eine Ausgleichsgerade eingefügt aus dessen Steigung sich L berechnen lässt.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{build/dampfdruck.pdf}
@@ -122,11 +128,11 @@ In folgendem halblogarithmischen Diagramm, ist eine Ausgleichsgerade einfegügt 
 \end{figure}
 %
 Aus dieser Gleichung und den Messreihen für $p_b$ und $T_1$ kann mit der allgemeinen Gaskonstante $R=\SI{8.31}{\joule\per\mole\per\kelvin}$
-die Verdampfungswärme $L=\SI{17301\pm548}{\joule\per\mole}=\SI{143101\pm4568}{\joule\kilogram}$, mit der molaren
+die Verdampfungswärme \mbox{$L=\SI{17301\pm548}{\joule\per\mole}=\SI{143101\pm4568}{\joule\kilogram}$}, mit der molaren
 Masse von $\ce{Cl2F2C}$
-$\SI{120.91}{\gram\per\mole}$ \cite{molar}, bestimmt werden.
+\mbox{$\SI{120.91}{\gram\per\mole}$ \cite{molar}}, bestimmt werden.
 %
-Daraus folgt ein Massendruchsatz von:
+Daraus folgt ein Massendurchsatz von:
 \begin{table}[H]
     \centering
     \caption{Massendurchsatz.}
@@ -146,7 +152,7 @@ Daraus folgt ein Massendruchsatz von:
 
 \subsection{Mechanische Kompressorleistung}
 Abschließend lässt sich die mechanische Kompressorleistung über Gleichung \eqref{eq:arbeit} bestimmen.
-Die Dichte von $\ce{Cl2F2C}$ bei $T=\SI{0}{\celsius}$ und $p=\SI{1}{\bar}$ liegt bei $\rho_0=\SI{5.51}{\gram\per\liter}$ und
+Die Dichte von $\ce{Cl2F2C}$ bei $T=\SI{0}{\celsius}$ und $p=\SI{1}{\bar}$ liegt bei \mbox{$\rho_0=\SI{5.51}{\gram\per\liter}$ \cite{Cl2F2C}} und
 $\kappa$ ist gegeben mit $\SI{1.14}{}$.
 
 \begin{table}[H]
