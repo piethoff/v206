@@ -6,6 +6,16 @@ Untersuchung einer Wärmepumpe und ermittlung der Qualität dieser.
 Der zweite Hauptsatz der Thermodynamik besagt, dass Wärmeenergie vom wärmeren in das kältere Reservoir fließt.
 Damit sich die Flussrichtung der Wärmeenergie ändert muss beispielsweise mechanische Arbeit aufgewendet werden.
 Eine Apparatur, welche dieses vollführt, ist die Wärmepume.
+Der erste Hauptsatz der Thermodynamik besagt:
+\begin{equation}
+	\Delta U = \Delta Q + \Delta A
+\end{equation}
+Für die Wärmepumpe folgt daraus, dass
+\begin{equation}
+	\label{eq:herleitung1}
+	Q_1 = Q_2 + A
+\end{equation}
+gelten muss.
 Die Güteziffer
 
 \begin{equation}
@@ -13,24 +23,33 @@ Die Güteziffer
 	\nu=\frac{Q_1}{A}
 \end{equation}
 
-beschreibt das Verhältnis zwischen transportierter Wärmemenge und verrichteter Arbeit.
-Mit dem zweiten Hauptsatz der Thermodynamik lässt sich nun folgende Aussage über über Wärmemengen der beiden Reservoirs und Temperaturen dieser treffen:
+\noindent beschreibt das Verhältnis zwischen transportierter Wärmemenge und verrichteter Arbeit.
+Mit dem zweiten Hauptsatz der Thermodynamik lässt sich nun folgende Aussage über Wärmemengen der beiden Reservoirs und Temperaturen dieser treffen:
 \begin{equation}
 		\label{eq:gl2}
 	\frac{Q_1}{T_1}-\frac{Q_2}{T_2}=0.
 \end{equation}
 Dies gilt jedoch nur unter den idealisierten Bedingungen, dass der Prozess reversibel ist.
-Aus Gleichung \eqref{eq:gl2} folgt für die Güteziffer die Beziehung
+Aus Gleichung \eqref{eq:herleitung1} und \eqref{eq:gl2} folgt:
+\begin{equation}
+	Q_1 = A + \frac{T_2}{T_1} Q_2 .
+\end{equation}
+Somit lässt sich die ideale Güteziffer durch
 \begin{equation}
 	\nu_{\text{id}}=\frac{T_1}{T_1-T_2}.
 	\label{eq:guetezifferideal}
 \end{equation}
+beschreiben.
 Daraus ist erkennbar, dass die Wärmepumpe um so effizienter arbeitet je kleiner die Temperaturdifferenz zwischen den Wärmereservoirs ist.
-Die reale Wärmepumpe kann diese forderung jedoch nicht erfüllen.
+Die reale Wärmepumpe kann diese Forderung jedoch nicht erfüllen.
 Für den realen, irreversiblen Fall gilt
 \begin{equation}
 		\label{eq:gl3}
-	\frac{Q_1}{T_1}-\frac{Q_2}{T_2}>0 .
+	\frac{Q_1}{T_1}-\frac{Q_2}{T_2}>0
+\end{equation}
+und damit für die reale Güteziffer:
+\begin{equation}
+\nu_{\text{id}} > \frac{T_1}{T_1-T_2}
 \end{equation}
 \subsection{Aufbau der Wärmepumpe}
 \label{sec:AdW}
