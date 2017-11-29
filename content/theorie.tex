@@ -1,8 +1,7 @@
 \section{Zielsetzung}
-Untersuchung einer Wärmepumpe und ermittlung der Qualität dieser.
+Dieser Versuch fokusiert sich auf die Untersuchung einer Wärmepumpe und Ermittlung der Qualität dieser.
 \section{Theorie}
 \label{sec:Theorie}
-
 Der zweite Hauptsatz der Thermodynamik besagt, dass Wärmeenergie vom wärmeren in das kältere Reservoir fließt.
 Damit sich die Flussrichtung der Wärmeenergie ändert muss beispielsweise mechanische Arbeit aufgewendet werden.
 Eine Apparatur, welche dieses vollführt, ist die Wärmepume.
@@ -17,13 +16,13 @@ Für die Wärmepumpe folgt daraus, dass
 \end{equation}
 gelten muss.
 Die Güteziffer
-
+%
 \begin{equation}
 	\label{eq:gl1}
 	\nu=\frac{Q_1}{A}
 \end{equation}
-
-\noindent beschreibt das Verhältnis zwischen transportierter Wärmemenge und verrichteter Arbeit.
+%
+beschreibt das Verhältnis zwischen transportierter Wärmemenge und verrichteter Arbeit.
 Mit dem zweiten Hauptsatz der Thermodynamik lässt sich nun folgende Aussage über Wärmemengen der beiden Reservoirs und Temperaturen dieser treffen:
 \begin{equation}
 		\label{eq:gl2}
@@ -77,23 +76,23 @@ Die pro Zeiteinheit gewonnene Wärmemenge berechnet sich nach:
 	\frac{\symup{d}Q_1}{\symup{dt}}=(m_1c_{\text{w}}+m_{\text{k}}c_{\text{k}})\cdot \frac{\symup{d}T_1}{\symup{dt}}.
 	\label{eq:gueteziffer}
 \end{equation}
-Hierbei sind $c_{\text{w}}$ und $c_{\text{s}}$ die Wärekapazität des Wassers und der Apparatur.
-Mit der Leistungsaufnahme $N$ lässt sich die Güteziffer durch
+Hierbei sind $c_{\text{w}}$ und $c_{\text{k}}$ die Wärmekapazität des Wassers und der Apparatur.
+Mit der Leistungsaufnahme $A$ lässt sich die Güteziffer durch
 \begin{equation}
-	\nu=\frac{1}{N}\frac{\symup{d}Q_1}{\symup{dt}}
+	\nu=\frac{1}{A}\frac{\symup{d}Q_1}{\symup{dt}}
     \label{eq:leistung}
 \end{equation}
 beschreiben.
 Analog zu \eqref{eq:gueteziffer} lässt sich die entnommene Wärmemenge $Q_2$ pro Zeiteinheit bestimmen.
-Ist die Verdampfungswärme $L$ bekannt kann der Massendurchsatz
+Ist die Verdampfungswärme $L$ bekannt, kann der Massendurchsatz
 \begin{equation}
-	\frac{\symup{d}Q_2}{\symup{dt}}=L\frac{\symup{d}m}{\symup{dt}}
+	\frac{\symup{d}m}{\symup{dt}}=\frac{1}{L}\frac{\symup{d}Q_2}{\symup{dt}}
 	\label{eq:massendurchsatz}
 \end{equation}
 berechnet werden.
 Die mechanische Kompressorleistung berechnet sich über:
 \begin{equation}
-	N_{\text{mech}} = \frac{1}{\kappa - 1} \left( p_{\text{b}} \sqrt[\kappa]{\frac{p_{\text{a}}}{p_{\text{b}}}} -p_{\text{a}}
+	A_{\text{mech}} = \frac{1}{\kappa - 1} \left( p_{\text{b}} \sqrt[{\leftroot{-1}\uproot{2}\scriptstyle \kappa}]{\frac{p_{\text{a}}}{p_{\text{b}}}} -p_{\text{a}}
 \right) \frac{1}{\rho} \cdot \frac{\symup{dm}}{\symup{dt}} .
 	\label{eq:arbeit}
 \end{equation}
