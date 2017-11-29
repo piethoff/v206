@@ -36,7 +36,7 @@ Die Ausgleichsrechnung wird in diesem Diagramm bereits aufgetragen.
 \subsection{Ausgleichsrechnung}
 Als geeignete Näherung für die Temperaturverläufe wird
 \begin{equation}
-    \frac{\symup{d}T}{\symup{dt}} \approx F(t) = At^3 + Bt^2 + Ct + D
+    T \approx F(t) = At^3 + Bt^2 + Ct + D
 \end{equation}
 gewählt.
 \begin{figure}[H]
@@ -64,7 +64,7 @@ bestimmt werden:
 \end{equation}
 Die Unsichertheit ergibt sich mit der Gaußschen Fehlerfortpflanzung zu:
 \begin{equation}
-    \symup{\Delta}\frac{\symup{d}T}{\symup{dt}} = sqrt{\left(3t^2\symup{\Delta}A\right)^2+\left(2t\symup{\Delta}B\right)^2+\left(\symup{\Delta}C\right)^2}
+    \symup{\Delta}\frac{\symup{d}T}{\symup{dt}} = \sqrt{\left(3t^2\symup{\Delta}A\right)^2+\left(2t\symup{\Delta}B\right)^2+\left(\symup{\Delta}C\right)^2}
 \end{equation}
 Es ergeben sich folgende Werte für 4 verschiedene, gewählte Temperaturen:
 \begin{table}[H]
@@ -90,14 +90,18 @@ werden:
 \begin{equation}
     \nu_\text{real} = \frac{m_wc_w + m_sc_s}{N}\frac{\symup{d}T}{\symup{dt}}
 \end{equation}
+Die Unsicherheit ist bestimmt durch:
+\begin{equation}
+    \symup{\Delta}\nu_\text{real} = \frac{m_wc_w + m_sc_s}{N}\symup{\Delta}\frac{\symup{d}T}{\symup{dt}}
+\end{equation}
 Hier ist $N$ die angezeigte Leistung des Kompressors, $m_sc_s$ die Wärmekapazität des Systems angegeben mit
 $\SI{660}{\joule\per\kelvin}$ und $m_wc_w$ die Wärmekapazität des Wassers in einem der Reservoire, die mit dem Literaturwert
-von $c_w = \SI{4182}{\joule\per\kilogram\per\kelvin}$ \cite{const} bestimmt wird.
+von \mbox{$c_w = \SI{4182}{\joule\per\kilogram\per\kelvin}$ \cite{const}} bestimmt wird.
 Die so erhaltenen Güteziffern befindent sich in Tabelle \ref{tab:guete}.
-Dazu sind noch die idealen Güteziffern und Abweichung von diesen Aufgetragen.
+Dazu sind noch die idealen Güteziffern und Abweichung von diesen aufgetragen.
 \begin{table}[H]
     \centering
-    \caption{Ergebnisse für reale und ideale Güteziffern}
+    \caption{Ergebnisse für reale und ideale Güteziffern.}
     \label{tab:guete}
     \sisetup{table-format=2.2}
     \begin{tabular}{S[table-format=2.0] S[table-format=1.3(4)] S S}
@@ -120,19 +124,42 @@ folgende Gleichung:
 \begin{equation}
     \ln \left(p\right) = -\frac{L}{\symup{R}} \frac{1}{T} + \text{const.}
 \end{equation}
-In folgendem halblogarithmischen Diagramm, ist eine Ausgleichsgerade eingefügt aus dessen Steigung sich L berechnen lässt.
+In folgendem halblogarithmischen Diagramm, in welchem $\ln{p}$ gegen $\frac{1}{T}$ 
+aufgetragen ist, ist eine Ausgleichsgerade eingefügt aus dessen Steigung m sich L berechnen 
+lässt.
+\begin{equation}
+    L = -\frac{m}{R}
+\end{equation}
+Die Unsicherheit ist somit:
+\begin{equation}
+    \symup{\Delta}L = -\frac{\symup{\Delta}m}{R}
+\end{equation}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{build/dampfdruck.pdf}
     \caption{Dampfdruckkurve von $\ce{Cl2F2C}$.}
 \end{figure}
 %
-Aus dieser Gleichung und den Messreihen für $p_b$ und $T_1$ kann mit der allgemeinen Gaskonstante $R=\SI{8.31}{\joule\per\mole\per\kelvin}$
+Aus dieser Gleichung und den Messreihen für $p_b$ und $T_1$ kann mit der allgemeinen 
+Gaskonstante \mbox{$R=\SI{8.31}{\joule\per\mole\per\kelvin}$}
 die Verdampfungswärme \mbox{$L=\SI{17301\pm548}{\joule\per\mole}=\SI{143101\pm4568}{\joule\kilogram}$}, mit der molaren
 Masse von $\ce{Cl2F2C}$
 \mbox{$\SI{120.91}{\gram\per\mole}$ \cite{molar}}, bestimmt werden.
 %
-Daraus folgt ein Massendurchsatz von:
+Der Massendurchsatz kann nun mithilfe von Gleichung \eqref{dubbi9} und \eqref{dubbi11} 
+zu
+\begin{equation}
+    \frac{\symup{d}m}{\symup{dt}} = \frac{1}{L}(m_2c_w + m_sc_s)\frac{\symup{d}T_2}{\symup{dt}}
+\end{equation}
+bestimmt werden mit der Unsicherheit
+\begin{equation}
+    \symup{\Delta}\frac{\symup{d}m}{\symup{dt}} = 
+    \sqrt{
+        \left(\frac{1}{L^2}(m_2c_w + m_sc_s)\frac{\symup{d}T_2}{\symup{dt}}\symup{\Delta}L\right)^2 + 
+        \left(\frac{1}{L}(m_2c_w + m_sc_s)\symup{\Delta}\frac{\symup{d}T_2}{\symup{dt}}\right)^2
+    }
+\end{equation}
+und sind im Folgenden aufgetragen:
 \begin{table}[H]
     \centering
     \caption{Massendurchsatz.}
@@ -149,12 +176,21 @@ Daraus folgt ein Massendurchsatz von:
         \bottomrule
     \end{tabular}
 \end{table}
-
+%
 \subsection{Mechanische Kompressorleistung}
 Abschließend lässt sich die mechanische Kompressorleistung über Gleichung \eqref{eq:arbeit} bestimmen.
-Die Dichte von $\ce{Cl2F2C}$ bei $T=\SI{0}{\celsius}$ und $p=\SI{1}{\bar}$ liegt bei \mbox{$\rho_0=\SI{5.51}{\gram\per\liter}$ \cite{Cl2F2C}} und
+Die Unsicherheit ist gegeben nach:
+\begin{equation}
+    \symup{\Delta}N_{\text{mech}} = \frac{1}{\kappa - 1} \left( p_{\text{b}}
+        \sqrt[{\leftroot{-1}\uproot{2}\scriptstyle \kappa}]{
+        \frac{p_{\text{a}}}{p_{\text{b}}}} -p_{\text{a}}\right)
+        \frac{1}{\rho}
+        \symup{\Delta}\frac{\symup{d}m}{\symup{dt}}
+\end{equation}
+Die Dichte von $\ce{Cl2F2C}$ bei \mbox{$T=\SI{0}{\celsius}$} und \mbox{$p=\SI{1}{\bar}}$ liegt bei 
+\mbox{$\rho_0=\SI{5.51}{\gram\per\liter}$ \cite{Cl2F2C}} und
 $\kappa$ ist gegeben mit $\SI{1.14}{}$.
-
+%
 \begin{table}[H]
     \centering
     \caption{Mechanische Kompressorleistung.}
