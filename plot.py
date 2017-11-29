@@ -21,13 +21,13 @@ t1, t2, time = np.loadtxt("content/Messwerte.txt", unpack=True)
 
 #Koordinatensystem schön machen:
 plt.clf()
-plt.xlabel(r'Zeit t in [s]')
-plt.ylabel(r'Temperatur in [K]')
+plt.xlabel(r'Zeit $t/\si{\second}')
+plt.ylabel(r'Temperatur $/\si{\kelvin}')
 plt.grid()
 
 #Messwerte plotten:
-plt.plot(time, t1, 'r.', ms=12, label=r'Messwerte $T_1(K)$')
-plt.plot(time, t2, 'b.', ms=12, label=r'Messwerte $T_2(K)$')
+plt.plot(time, t1, 'r.', ms=12, label=r'Messwerte $T_1$')
+plt.plot(time, t2, 'b.', ms=12, label=r'Messwerte $T_2$')
 
 # Fitvorschrift
 def f(x, A, B, C, D):
@@ -48,7 +48,7 @@ for i in range(0, len(uparams)):
 print()
 
 ##plt.plot(time, g(time, *params), "r--", label=r'Fit $T_1$')
-plt.plot(time, f(time, *params), "r--", label=r' F_$T_1$')
+plt.plot(time, f(time, *params), "r--", label=r' $F_T_1$')
 #plt.plot(time, h(time, *params), "r--", label=r'Fit $T_1$')
 
 #2.Kurve für die Werte T2:
@@ -61,7 +61,7 @@ for i in range(0, len(uparams)):
 print()
 
 ##plt.plot(time, g(time, *params), "b--", label=r'Fit $T_2$')
-plt.plot(time, f(time, *params), "b--", label=r'F_$T_2$')
+plt.plot(time, f(time, *params), "b--", label=r'$F_T_2$')
 #plt.plot(time, h(time, *params), "b--", label=r'Fit $T_2$')
 
 #Legende und anzeigen:
@@ -81,7 +81,7 @@ data[4] += 1
 def p(T, A, LR):
     return np.exp(-LR*T+A)
 
-plt.plot(data[1], data[4],'b.', label="Messwerte")
+plt.plot(data[1], data[4],'.', label="Messwerte $p_2$")
 params, covar = curve_fit(p, data[1], data[4], p0=(9, 2000))
 uparams = unumpy.uarray(params, np.sqrt(np.diag(covar)))
 print(uparams)
@@ -89,7 +89,7 @@ print(uparams)
 plt.yscale("log")
 plt.ylabel(r"$p/\si{\bar}$")
 plt.xlabel(r"$\frac{1}{T}/\si{\per\kelvin}$")
-plt.plot(data[1], p(data[1], *params),'r-', label="Fit")
+plt.plot(data[1], p(data[1], *params),'-', label="lin. Reg.")
 plt.grid()
 plt.legend()
 plt.tight_layout()
