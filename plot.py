@@ -48,7 +48,7 @@ for i in range(0, len(uparams)):
 print()
 
 ##plt.plot(time, g(time, *params), "r--", label=r'Fit $T_1$')
-plt.plot(time, f(time, *params), "r--", label=r' $F_T_1$')
+plt.plot(time, f(time, *params), "r--", label=r' $F_{T_1}$')
 #plt.plot(time, h(time, *params), "r--", label=r'Fit $T_1$')
 
 #2.Kurve für die Werte T2:
@@ -61,7 +61,7 @@ for i in range(0, len(uparams)):
 print()
 
 ##plt.plot(time, g(time, *params), "b--", label=r'Fit $T_2$')
-plt.plot(time, f(time, *params), "b--", label=r'$F_T_2$')
+plt.plot(time, f(time, *params), "b--", label=r'$F_{T_2}$')
 #plt.plot(time, h(time, *params), "b--", label=r'Fit $T_2$')
 
 #Legende und anzeigen:
@@ -81,7 +81,7 @@ data[4] += 1
 def p(T, A, LR):
     return np.exp(-LR*T+A)
 
-plt.plot(data[1], data[4],'.', label="Messwerte $p_2$")
+plt.plot(data[1], data[4],'o', label="Messwerte $p_2$")
 params, covar = curve_fit(p, data[1], data[4], p0=(9, 2000))
 uparams = unumpy.uarray(params, np.sqrt(np.diag(covar)))
 print(uparams)

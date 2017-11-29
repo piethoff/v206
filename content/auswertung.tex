@@ -1,4 +1,4 @@
-\section{Auswertung}
+section{Auswertung}
 \label{sec:Auswertung}
 \subsection{Temperaturverlauf}
 Die gemessenen Werte sind in einer geeigneten Abbildung \ref{fig:tempfit} dargestellt.
@@ -8,7 +8,7 @@ Die Ausgleichsrechnung wird in diesem Diagramm bereits aufgetragen.
     \caption{Messwerte des Versuchs (ohne 1 Bar Umgebungsdruck).}
     \label{tab:t1}
     \sisetup{table-format=2.2}
-    \begin{tabular}{S[table-format=2.0] S S S S S[table-format=3.0]}
+    \begin{tabular}{S[table-format=2.0] S S[table-format=+2.2] S S S[table-format=3.0]}
         \toprule
         {Zeit$/\si{\minute}$} & {$T_1/\si{\celsius}$} & {$T_2/\si{\celsius}$} & {$p_a/\si{\bar}$} & {$p_b/\si{\bar}$} & {$A/\si{\watt}$}\\
         \midrule
@@ -47,14 +47,14 @@ gewählt.
 \end{figure}
 \noindent Dabei ergeben sich für die Koeffizienten $A$, $B$ und $C$:
 \begin{align*}
-    A_{T1} & = \SI[per-mode=reciprocal]{-1.3 \pm 0.28e-8}{\kelvin\per\second\cubed}    \\
+    A_{T1} & = \SI[per-mode=reciprocal]{-1.31 \pm 0.28e-8}{\kelvin\per\second\cubed}    \\
     B_{T1} & = \SI[per-mode=reciprocal]{2.2 \pm 0.5e-5}{\kelvin\per\second\squared}           \\
-    C_{T1} & = \SI[per-mode=reciprocal]{0.018 \pm 0.024}{\kelvin\per\second}                       \\
+    C_{T1} & = \SI[per-mode=reciprocal]{0.018 \pm 0.002}{\kelvin\per\second}                       \\
     D_{T1} & = \SI[per-mode=reciprocal]{293.18 \pm 0.33}{\kelvin}                       \\
 \\
     A_{T2} & = \SI[per-mode=reciprocal]{3.39 \pm 0.23e-8}{\kelvin\per\second\cubed}    \\
     B_{T2} & = \SI[per-mode=reciprocal]{-5.2 \pm 0.4e-5}{\kelvin\per\second\squared}           \\
-    C_{T2} & = \SI[per-mode=reciprocal]{-0.004 \pm 0.002}{\kelvin\per\second}                       \\
+    C_{T2} & = \SI[per-mode=reciprocal]{-0.0040 \pm 0.0020}{\kelvin\per\second}                       \\
     D_{T2} & = \SI[per-mode=reciprocal]{295.05 \pm 0.27}{\kelvin}                       \\
 \end{align*}
 Die Differentialquotienten $\symup{d}T_1/\symup{dt}$ und $\symup{d}T_2/\symup{dt}$ können mithilfe der Näherungsfunktion
@@ -72,14 +72,14 @@ Es ergeben sich folgende Werte für 4 verschiedene, gewählte Temperaturen:
     \caption{Differentialquotienten von $T_1$ und $T_2$.}
     \label{tab:t2}
     \sisetup{table-format=3.4(4)e1}
-    \begin{tabular}{S[table-format=2.0] S[table-format=3.2] S[table-format=1.3(4)] S[table-format=3.2] S[table-format=2.3(4)]}
+    \begin{tabular}{S[table-format=2.0] S[table-format=3.2] S[table-format=2.2(3)] S[table-format=3.2] S[table-format=+1.2(3)]}
         \toprule
-        {Zeit$/\si{\minute}$} & {$T_1/\si{\kelvin}$} & {$\frac{\symup{d}T_1}{\symup{dt}}/\si{\kelvin\per\second}$} & {$T_2/\si{\kelvin}$} & {$\frac{\symup{d}T_2}{\symup{dt}}/\si{\kelvin\per\second}$} \\
+        {Zeit$/\si{\minute}$} & {$T_1/\si{\kelvin}$} & {$\frac{\symup{d}T_1}{\symup{dt}}/\SI{e-3}{\kelvin\per\second}$} & {$T_2/\si{\kelvin}$} & {$\frac{\symup{d}T_2}{\symup{dt}}/\SI{e-3}{\kelvin\per\second}$} \\
         \midrule
-        3   & 296.65    & 0.028 \pm 0.004 &  293.15 & -0.031 \pm 0.009\\
-        7   & 303.55    & 0.028 \pm 0.010 &  286.55 & -0.031 \pm 0.020\\
-        11  & 310.95    & 0.028 \pm 0.015 &  279.45 & -0.031 \pm 0.032\\
-        15  & 317.25    & 0.028 \pm 0.021 &  274.05 & -0.031 \pm 0.044\\
+        3   & 296.65    & 18.13 \pm 2.00 &  293.15 & -4.31 \pm 2.00\\
+        7   & 303.55    & 18.31 \pm 2.00 &  286.55 & -4.72 \pm 2.00\\
+        11  & 310.95    & 18.48 \pm 2.00 &  279.45 & -5.13 \pm 2.00\\
+        15  & 317.25    & 18.65 \pm 2.01 &  274.05 & -5.54 \pm 2.00\\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -88,15 +88,15 @@ Es ergeben sich folgende Werte für 4 verschiedene, gewählte Temperaturen:
 Mithilfe der Gleichungen \eqref{eq:gueteziffer} und \eqref{eq:leistung} kann nun die Gütezahl der realen Wärmepumpe berechnet
 werden:
 \begin{equation}
-    \nu_\text{real} = \frac{m_wc_w + m_sc_s}{N}\frac{\symup{d}T}{\symup{dt}}
+    \nu_\text{real} = \frac{m_wc_w + m_sc_s}{N}\frac{\symup{d}T_1}{\symup{dt}}
 \end{equation}
 Die Unsicherheit ist bestimmt durch:
 \begin{equation}
-    \symup{\Delta}\nu_\text{real} = \frac{m_wc_w + m_sc_s}{N}\symup{\Delta}\frac{\symup{d}T}{\symup{dt}}
+    \symup{\Delta}\nu_\text{real} = \frac{m_wc_w + m_sc_s}{N}\symup{\Delta}\frac{\symup{d}T_1}{\symup{dt}}
 \end{equation}
 Hier ist $N$ die angezeigte Leistung des Kompressors, $m_sc_s$ die Wärmekapazität des Systems angegeben mit
 $\SI{660}{\joule\per\kelvin}$ und $m_wc_w$ die Wärmekapazität des Wassers in einem der Reservoire, die mit dem Literaturwert
-von \mbox{$c_w = \SI{4182}{\joule\per\kilogram\per\kelvin}$ \cite{const}} bestimmt wird.
+von \mbox{$c_w = \SI{4182}{\joule\per\kilogram\per\kelvin}$\cite{const}} bestimmt wird.
 Die so erhaltenen Güteziffern befindent sich in Tabelle \ref{tab:guete}.
 Dazu sind noch die idealen Güteziffern und Abweichung von diesen aufgetragen.
 \begin{table}[H]
@@ -106,12 +106,12 @@ Dazu sind noch die idealen Güteziffern und Abweichung von diesen aufgetragen.
     \sisetup{table-format=2.2}
     \begin{tabular}{S[table-format=2.0] S[table-format=1.3(4)] S S}
         \toprule
-        {Zeit$/\si{\minute}$} & {$\nu_\text{real}$} & {$\nu_\text{ideal}$} & {Abweichung} \\
+        {Zeit$/\si{\minute}$} & {$\nu_\text{real}$} & {$\nu_\text{ideal}$} & {Abweichung$/\si{\percent}$} \\
         \midrule
-        3  & 0.205 \pm 0.290 & 84.76 & 99.76\% \\
-        7  & 0.183 \pm 0.662 & 17.86 & 98.97\% \\
-        11 & 0.174 \pm 0.923 & 9.87  & 98.23\% \\
-        15 & 0.172 \pm 1.274 & 7.34  & 97.66\% \\
+        3  & 1.33 \pm 0.15 & 84.76 & 98.43 \\
+        7  & 1.23 \pm 0.13 & 17.86 & 93.11 \\
+        11 & 1.15 \pm 0.12 & 9.87  & 88.35 \\
+        15 & 1.15 \pm 0.12 & 7.34  & 84.33 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -124,15 +124,15 @@ folgende Gleichung:
 \begin{equation}
     \ln \left(p\right) = -\frac{L}{\symup{R}} \frac{1}{T} + \text{const.}
 \end{equation}
-In folgendem halblogarithmischen Diagramm, in welchem $\ln{p}$ gegen $\frac{1}{T}$ 
-aufgetragen ist, ist eine Ausgleichsgerade eingefügt aus dessen Steigung m sich L berechnen 
+In folgendem halblogarithmischen Diagramm, in welchem $\ln{p}$ gegen $1/T$ 
+aufgetragen ist, ist eine Ausgleichsgerade eingefügt aus dessen Steigung $m$ sich $L$ berechnen 
 lässt.
 \begin{equation}
-    L = -\frac{m}{R}
+    L = -mR
 \end{equation}
 Die Unsicherheit ist somit:
 \begin{equation}
-    \symup{\Delta}L = -\frac{\symup{\Delta}m}{R}
+    \symup{\Delta}L = -R\symup{\Delta}m
 \end{equation}
 \begin{figure}[H]
     \centering
@@ -140,13 +140,15 @@ Die Unsicherheit ist somit:
     \caption{Dampfdruckkurve von $\ce{Cl2F2C}$.}
 \end{figure}
 %
-Aus dieser Gleichung und den Messreihen für $p_b$ und $T_1$ kann mit der allgemeinen 
-Gaskonstante \mbox{$R=\SI{8.31}{\joule\per\mole\per\kelvin}$}
-die Verdampfungswärme \mbox{$L=\SI{17301\pm548}{\joule\per\mole}=\SI{143101\pm4568}{\joule\kilogram}$}, mit der molaren
-Masse von $\ce{Cl2F2C}$
-\mbox{$\SI{120.91}{\gram\per\mole}$ \cite{molar}}, bestimmt werden.
+\noindent Aus dieser Gleichung und den Messreihen für $p_b$ und $T_1$ kann mit der allgemeinen 
+Gaskonstante \mbox{$R=\SI{8.31}{\joule\per\mole\per\kelvin}$}, mit der molaren Masse von $\ce{Cl2F2C}$ \mbox{$\SI{120.91}{\gram\per\mole}$\cite{molar}} 
+und \mbox{$m = \SI{2081.94\pm65.97}{\kelvin}$} die Verdampfungswärme
+\begin{equation*}
+L=\SI{17310\pm549}{\joule\per\mole}=\SI{143166\pm4536}{\joule\per\kilogram},
+\end{equation*}
+bestimmt werden.
 %
-Der Massendurchsatz kann nun mithilfe von Gleichung \eqref{dubbi9} und \eqref{dubbi11} 
+Der Massendurchsatz kann nun mithilfe von Gleichung \eqref{eq:gueteziffer} und \eqref{eq:massendurchsatz} 
 zu
 \begin{equation}
     \frac{\symup{d}m}{\symup{dt}} = \frac{1}{L}(m_2c_w + m_sc_s)\frac{\symup{d}T_2}{\symup{dt}}
@@ -164,15 +166,15 @@ und sind im Folgenden aufgetragen:
     \centering
     \caption{Massendurchsatz.}
     \label{tab:masse}
-    \sisetup{table-format=2.3(4)e2}
-    \begin{tabular}{S[table-format=2.0] S S}
+    \sisetup{table-format=+1.2(3)}
+    \begin{tabular}{S[table-format=2.0] S S[table-format=+1.3(4)]}
         \toprule
-        {Zeit$/\si{\minute}$} & {$\frac{\symup{d}T_2}{\symup{dt}}/\si{\kelvin\per\second}$} & {$\frac{\symup{d}m}{\symup{dt}}/\si{\kg\per\second}$} \\
+        {Zeit$/\si{\minute}$} & {$\frac{\symup{d}T_2}{\symup{dt}}/\SI{e-3}{\kelvin\per\second}$} & {$\frac{\symup{d}m}{\symup{dt}}/\SI{e-3}{\kg\per\second}$} \\
         \midrule
-        3   & -0.031 \pm 0.009  & -2,861\pm0.836e-3\\
-        5   & -0.031 \pm 0.020  & -2,861\pm1.848e-3\\
-        7   & -0.031 \pm 0.032  & -2,861\pm2.955e-3\\
-        11  & -0.031 \pm 0.044  & -2,861\pm4.062e-3\\
+        3   & -4.31 \pm 2.00    & -0.398 \pm 0.185\\
+        5   & -4.72 \pm 2.00    & -0.436 \pm 0.185\\
+        7   & -5.13 \pm 2.00    & -0.473 \pm 0.185\\
+        11  & -5.54 \pm 2.00    & -0.511 \pm 0.185\\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -187,23 +189,23 @@ Die Unsicherheit ist gegeben nach:
         \frac{1}{\rho}
         \symup{\Delta}\frac{\symup{d}m}{\symup{dt}}
 \end{equation}
-Die Dichte von $\ce{Cl2F2C}$ bei \mbox{$T=\SI{0}{\celsius}$} und \mbox{$p=\SI{1}{\bar}}$ liegt bei 
-\mbox{$\rho_0=\SI{5.51}{\gram\per\liter}$ \cite{Cl2F2C}} und
+Die Dichte von $\ce{Cl2F2C}$ bei \mbox{$T=\SI{0}{\celsius}$} und \mbox{$p=\SI{1}{\bar}$} liegt bei 
+\mbox{$\rho_0=\SI{5.55}{\kg\meter\cubed}$\cite{molar}} und
 $\kappa$ ist gegeben mit $\SI{1.14}{}$.
 %
 \begin{table}[H]
     \centering
     \caption{Mechanische Kompressorleistung.}
-    \label{tab:masse}
+    \label{tab:mech}
     \sisetup{table-format=2.2}
-    \begin{tabular}{S[table-format=2.0] S S S[table-format=2.3(4)e2] S[table-format=2.3(4)]}
+    \begin{tabular}{S[table-format=2.0] S[table-format=1.1] S[table-format=2.1] S[table-format=+1.3(4)] S[table-format=+1.3(4)]}
         \toprule
-        {Zeit$/\si{\minute}$} & {$p_a/\si{\bar}$} & {$p_b/\si{\bar}$} & {$\frac{\symup{d}m}{\symup{dt}}/\si{\kg\per\second}$} & {$N_\text{mech}/\si{\watt}$} \\
+        {Zeit$/\si{\minute}$} & {$p_a/\si{\bar}$} & {$p_b/\si{\bar}$} & {$\frac{\symup{d}m}{\symup{dt}}/\SI{e-3}{\kg\per\second}$} & {$N_\text{mech}/\SI{e-3}{\watt}$} \\
         \midrule
-        3   & 1.82  & 7.0   & -2,861\pm0.836e-3 & -1.094\pm0.002 \\
-        7   & 2.1   & 8.1   & -2,861\pm1.848e-3 & -1.265\pm0.002 \\
-        11  & 2.2   & 9.6   & -2,861\pm2.955e-3 & -1.476\pm0.002 \\
-        15  & 0.9   & 11.2  & -2,861\pm4.062e-3 & -1.233\pm0.002 \\
+        3   & 1.8   & 7.0   & -0.398\pm0.185 & -0.197\pm0.092 \\
+        7   & 2.1   & 8.1   & -0.436\pm0.185 & -0.221\pm0.094 \\
+        11  & 2.2   & 9.6   & -0.473\pm0.185 & -0.309\pm0.121 \\
+        15  & 2.2   & 11.2  & -0.511\pm0.185 & -0.376\pm0.136 \\
         \bottomrule
     \end{tabular}
 \end{table}
