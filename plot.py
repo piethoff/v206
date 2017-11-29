@@ -30,8 +30,8 @@ plt.plot(time, t1, 'r.', ms=12, label=r'Messwerte $T_1(K)$')
 plt.plot(time, t2, 'b.', ms=12, label=r'Messwerte $T_2(K)$')
 
 # Fitvorschrift
-def f(x, A, B, C):
-    return A*(x**2) + B*x + C                               #jeweilige Fitfunktion auswaehlen:
+def f(x, A, B, C, D):
+    return A*(x**3) + B*(x**2) + C*x + D                               #jeweilige Fitfunktion auswaehlen:
 def g(x, A, B, a):
     return A/(1+B*(x**a))
 def h(x, A, B, C, a):
@@ -40,7 +40,7 @@ def h(x, A, B, C, a):
                                                             #Fuer polynomieller Plot: A*x**2+B*x+C
 #1. Kurve für die Werte T1:
 ##params, covar = curve_fit(g, time, t1, p0=(295, 1, 2))
-params, covar = curve_fit(f, time, t1, p0=(1, 1, 295))
+params, covar = curve_fit(f, time, t1, p0=(1, 1, 1, 295))
 #params, covar = curve_fit(h, time, t1, p0=(0, 0, 295, 2))
 uparams = unumpy.uarray(params, np.sqrt(np.diag(covar)))
 for i in range(0, len(uparams)):
@@ -53,7 +53,7 @@ plt.plot(time, f(time, *params), "r--", label=r' F_$T_1$')
 
 #2.Kurve für die Werte T2:
 ##params, covar = curve_fit(g, time, t2, p0=(295, 1, 2))
-params, covar = curve_fit(f, time, t2, p0=(1, 1, 295))
+params, covar = curve_fit(f, time, t2, p0=(1, 1, 1, 295))
 #params, covar = curve_fit(h, time, t2, p0=(0, 0, 295, 2))
 uparams = unumpy.uarray(params, np.sqrt(np.diag(covar)))
 for i in range(0, len(uparams)):
