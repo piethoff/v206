@@ -48,7 +48,7 @@ for i in range(0, len(uparams)):
 print()
 
 ##plt.plot(time, g(time, *params), "r--", label=r'Fit $T_1$')
-plt.plot(time, f(time, *params), "r--", label=r'Fit $T_1$')
+plt.plot(time, f(time, *params), "r--", label=r' F_$T_1$')
 #plt.plot(time, h(time, *params), "r--", label=r'Fit $T_1$')
 
 #2.Kurve für die Werte T2:
@@ -61,7 +61,7 @@ for i in range(0, len(uparams)):
 print()
 
 ##plt.plot(time, g(time, *params), "b--", label=r'Fit $T_2$')
-plt.plot(time, f(time, *params), "b--", label=r'Fit $T_2$')
+plt.plot(time, f(time, *params), "b--", label=r'F_$T_2$')
 #plt.plot(time, h(time, *params), "b--", label=r'Fit $T_2$')
 
 #Legende und anzeigen:
