@@ -1,8 +1,8 @@
-section{Auswertung}
+\section{Auswertung}
 \label{sec:Auswertung}
 \subsection{Temperaturverlauf}
 Die gemessenen Werte sind in einer geeigneten Abbildung \ref{fig:tempfit} dargestellt.
-Die Ausgleichsrechnung wird in diesem Diagramm bereits aufgetragen.
+Die Ausgleichsrechnung ist in diesem Diagramm bereits aufgetragen.
 \begin{table}[H]
     \centering
     \caption{Messwerte des Versuchs (ohne 1 Bar Umgebungsdruck).}
@@ -45,17 +45,17 @@ gewählt.
   \caption{Temperaturen der Wärmereservoirs aufgetragen gegen die Zeit.}
   \label{fig:tempfit}
 \end{figure}
-\noindent Dabei ergeben sich für die Koeffizienten $A$, $B$ und $C$:
+\noindent Dabei ergeben sich für die Koeffizienten $A$, $B$, $C$ und $D$:
 \begin{align*}
-    A_{T1} & = \SI[per-mode=reciprocal]{-1.31 \pm 0.28e-8}{\kelvin\per\second\cubed}    \\
-    B_{T1} & = \SI[per-mode=reciprocal]{2.2 \pm 0.5e-5}{\kelvin\per\second\squared}           \\
-    C_{T1} & = \SI[per-mode=reciprocal]{0.018 \pm 0.002}{\kelvin\per\second}                       \\
-    D_{T1} & = \SI[per-mode=reciprocal]{293.18 \pm 0.33}{\kelvin}                       \\
+    A_{T_1} & = \SI[per-mode=reciprocal]{-1.31 \pm 0.28e-8}{\kelvin\per\second\cubed}&    \\
+    B_{T_1} & = \SI[per-mode=reciprocal]{2.2 \pm 0.5e-5}{\kelvin\per\second\squared} &          \\
+    C_{T_1} & = \SI[per-mode=reciprocal]{0.018 \pm 0.002}{\kelvin\per\second}        &               \\
+    D_{T_1} & = \SI[per-mode=reciprocal]{293.18 \pm 0.33}{\kelvin}                   &    \\
 \\
-    A_{T2} & = \SI[per-mode=reciprocal]{3.39 \pm 0.23e-8}{\kelvin\per\second\cubed}    \\
-    B_{T2} & = \SI[per-mode=reciprocal]{-5.2 \pm 0.4e-5}{\kelvin\per\second\squared}           \\
-    C_{T2} & = \SI[per-mode=reciprocal]{-0.0040 \pm 0.0020}{\kelvin\per\second}                       \\
-    D_{T2} & = \SI[per-mode=reciprocal]{295.05 \pm 0.27}{\kelvin}                       \\
+    A_{T_2} & = \SI[per-mode=reciprocal]{3.39 \pm 0.23e-8}{\kelvin\per\second\cubed} &   \\
+    B_{T_2} & = \SI[per-mode=reciprocal]{-5.2 \pm 0.4e-5}{\kelvin\per\second\squared}&           \\
+    C_{T_2} & = \SI[per-mode=reciprocal]{-0.004 \pm 0.002}{\kelvin\per\second}       &                \\
+    D_{T_2} & = \SI[per-mode=reciprocal]{295.05 \pm 0.27}{\kelvin}                   &    \\
 \end{align*}
 Die Differentialquotienten $\symup{d}T_1/\symup{dt}$ und $\symup{d}T_2/\symup{dt}$ können mithilfe der Näherungsfunktion
 bestimmt werden:
@@ -72,14 +72,14 @@ Es ergeben sich folgende Werte für 4 verschiedene, gewählte Temperaturen:
     \caption{Differentialquotienten von $T_1$ und $T_2$.}
     \label{tab:t2}
     \sisetup{table-format=3.4(4)e1}
-    \begin{tabular}{S[table-format=2.0] S[table-format=3.2] S[table-format=2.2(3)] S[table-format=3.2] S[table-format=+1.2(3)]}
+    \begin{tabular}{S[table-format=2.0] S[table-format=3.2] S[table-format=2.2(4)] S[table-format=3.2] S[table-format=+2.2(3)]}
         \toprule
         {Zeit$/\si{\minute}$} & {$T_1/\si{\kelvin}$} & {$\frac{\symup{d}T_1}{\symup{dt}}/\SI{e-3}{\kelvin\per\second}$} & {$T_2/\si{\kelvin}$} & {$\frac{\symup{d}T_2}{\symup{dt}}/\SI{e-3}{\kelvin\per\second}$} \\
         \midrule
-        3   & 296.65    & 18.13 \pm 2.00 &  293.15 & -4.31 \pm 2.00\\
-        7   & 303.55    & 18.31 \pm 2.00 &  286.55 & -4.72 \pm 2.00\\
-        11  & 310.95    & 18.48 \pm 2.00 &  279.45 & -5.13 \pm 2.00\\
-        15  & 317.25    & 18.65 \pm 2.01 &  274.05 & -5.54 \pm 2.00\\
+        3   & 296.65    & 24.65 \pm  2.70 & 293.15 & -19.42 \pm 2.47\\
+        7   & 303.55    & 29.55 \pm  4.88 & 286.55 & -29.74 \pm 4.10\\
+        11  & 310.95    & 29.92 \pm  7.81 & 279.45 & -28.34 \pm 6.40\\
+        15  & 317.25    & 25.77 \pm 11.46 & 274.05 & -15.22 \pm 9.33\\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -97,21 +97,21 @@ Die Unsicherheit ist bestimmt durch:
 Hier ist $N$ die angezeigte Leistung des Kompressors, $m_sc_s$ die Wärmekapazität des Systems angegeben mit
 $\SI{660}{\joule\per\kelvin}$ und $m_wc_w$ die Wärmekapazität des Wassers in einem der Reservoire, die mit dem Literaturwert
 von \mbox{$c_w = \SI{4182}{\joule\per\kilogram\per\kelvin}$\cite{const}} bestimmt wird.
-Die so erhaltenen Güteziffern befindent sich in Tabelle \ref{tab:guete}.
-Dazu sind noch die idealen Güteziffern und Abweichung von diesen aufgetragen.
+Die so erhaltenen Güteziffern befinden sich in Tabelle \ref{tab:guete}.
+Dazu sind die idealen Güteziffern und Abweichung von diesen aufgetragen.
 \begin{table}[H]
     \centering
     \caption{Ergebnisse für reale und ideale Güteziffern.}
     \label{tab:guete}
     \sisetup{table-format=2.2}
-    \begin{tabular}{S[table-format=2.0] S[table-format=1.3(4)] S S}
+    \begin{tabular}{S[table-format=2.0] S[table-format=1.2(3)] S S}
         \toprule
         {Zeit$/\si{\minute}$} & {$\nu_\text{real}$} & {$\nu_\text{ideal}$} & {Abweichung$/\si{\percent}$} \\
         \midrule
-        3  & 1.33 \pm 0.15 & 84.76 & 98.43 \\
-        7  & 1.23 \pm 0.13 & 17.86 & 93.11 \\
-        11 & 1.15 \pm 0.12 & 9.87  & 88.35 \\
-        15 & 1.15 \pm 0.12 & 7.34  & 84.33 \\
+        3  & 1.81 \pm 0.20 & 84.76 & 97.86 \\
+        7  & 1.93 \pm 0.32 & 17.86 & 89.19 \\
+        11 & 1.86 \pm 0.49 & 9.87  & 81.16 \\
+        15 & 1.58 \pm 0.70 & 7.34  & 78.47 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -122,7 +122,7 @@ $L$ benötigt.
 In der Anleitung des Versuchs \href{http://129.217.224.2/HOMEPAGE/PHYSIKER/BACHELOR/AP/SKRIPT/V203.pdf}{v203} findet sich
 folgende Gleichung:
 \begin{equation}
-    \ln \left(p\right) = -\frac{L}{\symup{R}} \frac{1}{T} + \text{const.}
+    \ln \left(p\right) = -\frac{L}{R} \frac{1}{T} + \text{const.}
 \end{equation}
 In folgendem halblogarithmischen Diagramm, in welchem $\ln{p}$ gegen $1/T$ 
 aufgetragen ist, ist eine Ausgleichsgerade eingefügt aus dessen Steigung $m$ sich $L$ berechnen 
@@ -166,32 +166,49 @@ und sind im Folgenden aufgetragen:
     \centering
     \caption{Massendurchsatz.}
     \label{tab:masse}
-    \sisetup{table-format=+1.2(3)}
-    \begin{tabular}{S[table-format=2.0] S S[table-format=+1.3(4)]}
+    \sisetup{table-format=+1.2(4)}
+    \begin{tabular}{S[table-format=2.0] S[table-format=+2.2(3)] S}
         \toprule
         {Zeit$/\si{\minute}$} & {$\frac{\symup{d}T_2}{\symup{dt}}/\SI{e-3}{\kelvin\per\second}$} & {$\frac{\symup{d}m}{\symup{dt}}/\SI{e-3}{\kg\per\second}$} \\
         \midrule
-        3   & -4.31 \pm 2.00    & -0.398 \pm 0.185\\
-        5   & -4.72 \pm 2.00    & -0.436 \pm 0.185\\
-        7   & -5.13 \pm 2.00    & -0.473 \pm 0.185\\
-        11  & -5.54 \pm 2.00    & -0.511 \pm 0.185\\
+        3   & -19.42 \pm  2.47   & -1.79 \pm 0.235\\
+        7   & -29.74 \pm  4.10   & -2.74 \pm 0.388\\
+        11  & -28.34 \pm  6.40   & -2.61 \pm 0.590\\
+        15  & -15.22 \pm  9.33   & -1.40 \pm 0.862\\
         \bottomrule
     \end{tabular}
 \end{table}
 %
 \subsection{Mechanische Kompressorleistung}
 Abschließend lässt sich die mechanische Kompressorleistung über Gleichung \eqref{eq:arbeit} bestimmen.
+Die Dichte von $\ce{Cl2F2C}$ bei \mbox{$T_0=\SI{0}{\celsius}$} und \mbox{$p_0=\SI{1}{\bar}$} liegt bei 
+\mbox{$\rho_0=\SI{5.55}{\kg\meter\cubed}$\cite{molar}} und
+$\kappa$ ist gegeben mit $\num{1.14}$.
+Aus der allgemeinen Gasgleichung\cite{gasgl},
+\begin{equation}
+    \frac{p}{\rho T} = R,
+\end{equation}
+folgt:
+\begin{equation}
+    \frac{1}{\rho} = \frac{p_0}{p_a} \frac{T_2}{T_0} \frac{1}{\rho_0}
+\end{equation}
+Es ergibt sich für die Mechanische Leistung:
+Die Unsicherheit ist gegeben nach:
+\begin{equation}
+    N_{\text{mech}} = \frac{1}{\kappa - 1} \left( p_{\text{b}}
+        \sqrt[{\leftroot{-1}\uproot{2}\scriptstyle \kappa}]{
+        \frac{p_{\text{a}}}{p_{\text{b}}}} -p_{\text{a}}\right)
+        \frac{p_0}{p_a} \frac{T_2}{T_0} \frac{1}{\rho_0}
+        \frac{\symup{d}m}{\symup{dt}}
+\end{equation}
 Die Unsicherheit ist gegeben nach:
 \begin{equation}
     \symup{\Delta}N_{\text{mech}} = \frac{1}{\kappa - 1} \left( p_{\text{b}}
         \sqrt[{\leftroot{-1}\uproot{2}\scriptstyle \kappa}]{
         \frac{p_{\text{a}}}{p_{\text{b}}}} -p_{\text{a}}\right)
-        \frac{1}{\rho}
+        \frac{p_0}{p_a} \frac{T_2}{T_0} \frac{1}{\rho_0}
         \symup{\Delta}\frac{\symup{d}m}{\symup{dt}}
 \end{equation}
-Die Dichte von $\ce{Cl2F2C}$ bei \mbox{$T=\SI{0}{\celsius}$} und \mbox{$p=\SI{1}{\bar}$} liegt bei 
-\mbox{$\rho_0=\SI{5.55}{\kg\meter\cubed}$\cite{molar}} und
-$\kappa$ ist gegeben mit $\SI{1.14}{}$.
 %
 \begin{table}[H]
     \centering
@@ -202,10 +219,10 @@ $\kappa$ ist gegeben mit $\SI{1.14}{}$.
         \toprule
         {Zeit$/\si{\minute}$} & {$p_a/\si{\bar}$} & {$p_b/\si{\bar}$} & {$\frac{\symup{d}m}{\symup{dt}}/\SI{e-3}{\kg\per\second}$} & {$N_\text{mech}/\SI{e-3}{\watt}$} \\
         \midrule
-        3   & 1.8   & 7.0   & -0.398\pm0.185 & -0.197\pm0.092 \\
-        7   & 2.1   & 8.1   & -0.436\pm0.185 & -0.221\pm0.094 \\
-        11  & 2.2   & 9.6   & -0.473\pm0.185 & -0.309\pm0.121 \\
-        15  & 2.2   & 11.2  & -0.511\pm0.185 & -0.376\pm0.136 \\
+        3   & 1.8   & 7.0   & -1.790\pm0.235    & -0.340\pm0.045 \\
+        7   & 2.1   & 8.1   & -2.740\pm0.388    & -0.523\pm0.074 \\
+        11  & 2.2   & 9.6   & -2.610\pm0.590    & -0.545\pm0.123 \\
+        15  & 2.2   & 11.2  & -1.400\pm0.862    & -0.323\pm0.199 \\
         \bottomrule
     \end{tabular}
 \end{table}
